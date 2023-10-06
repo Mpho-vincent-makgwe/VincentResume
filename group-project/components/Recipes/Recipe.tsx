@@ -4,8 +4,6 @@ import "react-multi-carousel/lib/styles.css";
 import { responsive } from "@/helpers/settings/settings";
 
 const Recipe = (recipe: any) => {
-    console.log(recipe);
-    console.log(recipe.recipe);
   if (!recipe.recipe) {
     return <div>Loading...</div>;
   }

@@ -48,7 +48,7 @@ const RecipeList = () => {
               key={recipe._id}
               className="bg-purple-300 p-4 rounded shadow mb-4"
             >
-              <Link href={`/${encodeURIComponent(recipe.title)}`} key={recipe._id}>
+              <Link  href={`/${encodeURIComponent(recipe.title)}`} key={recipe._id}>
                 <h2 className="text-2xl font-semibold">{recipe.title}</h2>
                 <p className="text-gray-600">{recipe.description}</p>
                 <p className="text-gray-600">

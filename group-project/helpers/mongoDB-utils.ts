@@ -65,10 +65,55 @@ export const generateDynamicPaths = async () => {
     const dynamicPaths = recipes.map((recipe: any) => ({
       params: { recipeName: recipe.title },
     }));
-    console.log(dynamicPaths)
     return dynamicPaths;
   } catch (error) {
     console.error("Error generating dynamic paths:", error);
     throw error;
   }
 };
+
+export const getAllCategories = async (client: string | any) => {
+  try {
+    const db = client.db("devdb");
+    const categoriesDocument = await db.collection("categories").findOne({});
+    const categories = categoriesDocument.categories;
+    return categories;
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+    throw error;
+  }
+};
+
+export const fetchCategories = async () => {
+  try {
+    const client = await DBConnection();
+    const fetchedCategories = await getAllCategories(client);
+  console.log(fetchedCategories)
+    client.close();
+    return fetchedCategories;
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+  }
+};
+
+// export const fetchAndSortRecipes = async () => {
+//   try {
+//     const client = await DBConnection();
+//     const recipes = await getAllRecipes(client, 0, 30); // Adjust the limit as needed
+//     const sortedRecipes = {};
+
+//     recipes.forEach((recipe:any) => {
+//       const category = recipe.category;
+
+//       if (!sortedRecipes[category]) {
+//         sortedRecipes[category] = [];
+//       }
+
+//       sortedRecipes[category].push(recipe);
+//     });
+//   client.close();
+//    return sortedRecipes;
+//   } catch (error) {
+//     console.error("Error fetching and sorting recipes:", error);
+//   }
+// };
