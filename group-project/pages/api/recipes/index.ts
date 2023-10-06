@@ -18,11 +18,6 @@ const handler = async (req: any, res: any) => {
   } catch (error) {
     console.error("Error fetching recipes:", error);
     res.status(408).json({ error: "Error fetching recipes" });
-  } finally {
-    let client = await DBConnection();
-    if (client) {
-      client.close();
-    }
   }
 };
 
