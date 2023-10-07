@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { responsive } from "@/helpers/settings/settings";
-
-const Recipe = (recipe: any) => {
+import { responsive } from "../../helpers/settings/settings";
+import { RecipeData } from "../Types/recipeTypes";
+const Recipe: React.FC<{ recipe: RecipeData }>  = (recipe: any) => {
   if (!recipe.recipe) {
     return <div>Loading...</div>;
   }

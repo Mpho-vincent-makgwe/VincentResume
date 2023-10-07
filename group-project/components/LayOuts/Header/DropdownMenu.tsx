@@ -32,7 +32,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ options, onSelect }) => {
           aria-haspopup="true"
           aria-expanded="true"
         >
-          {selectedOption ? selectedOption : 'Select an option'}
+          {selectedOption ? selectedOption : 'Select a category'}
           <svg
             className="-mr-1 ml-2 h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
