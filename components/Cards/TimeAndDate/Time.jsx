@@ -30,7 +30,7 @@ export const TotalTime = ({ totalTime }) => {
 export const Published = ({ published }) => {
     return (
         <>
-            <b>Published:</b>
+            <b className="font-bold">Published:</b>
             <p className=" transform translate-x-0 hover:translate-x-2 transition-transform duration-300 ease-in-out">
                 {new Date(published).toLocaleDateString()}
             </p>

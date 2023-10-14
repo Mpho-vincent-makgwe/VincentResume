@@ -57,14 +57,16 @@ const RecipeList = ({
             {recipeList.map((recipe, index) => (
               <div
                 className={`${
-                  theme === "dark" ? "bg-stone-800" : "bg-awesome-colors-30"
+                  theme === "dark" ? "bg-rose-800 text-custom-green-10" : "bg-custom-green-10 text-orange-500"
                 } font-thin text-xs container w-11/12 mx-auto px-4 h-fit-content rounded shadow-xl`}
                 key={index}
               >
                 <Title title={recipe.title} />
+                <hr/>
                 <section className=" ">
                   <ImageCarousel images={recipe.images} title={recipe.title} />
                 </section>
+                <hr/>
                 <RecipeCard
                   style={cardStyle}
                   onMouseEnter={() => setIsHovered(true)}

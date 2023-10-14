@@ -27,15 +27,19 @@ const EditRecipeInstructions = ({ instructions, onSave }) => {
       <ol>
         {newInstructions.map((instruction, index) => (
           <li key={index}>
-            <input
-              type="text"
-              value={instruction}
-              onChange={(e) => {
-                const updatedInstructions = [...newInstructions];
-                updatedInstructions[index] = e.target.value;
-                setNewInstructions(updatedInstructions);
-              }}
-            />
+            <div className="mx-auto flex max-w-7xl">
+              <input
+                
+                type="text"
+                value={instruction}
+                onChange={(e) => {
+                  const updatedInstructions = [...newInstructions];
+                  updatedInstructions[index] = e.target.value;
+                  setNewInstructions(updatedInstructions);
+                }}
+              />
+            </div>
+
             <button
               className="bg-brownish-red-10"
               onClick={() => handleRemoveInstruction(index)}

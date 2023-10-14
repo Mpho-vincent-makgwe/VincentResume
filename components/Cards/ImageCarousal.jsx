@@ -2,20 +2,20 @@ import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { responsive } from "../../helpers/settings/settings";
-import theme from "./Image.module.css";
+
 const ImageCarousel = ({ images, title }) => {
   return (
-    <div className={``}>
+    <div className="">
       <Carousel responsive={responsive}>
-        {images.map((image) => (
-          <div key={image} className=" w-fit gap-4 ">
-            <div>
+        {images.map((image, index) => (
+          <div key={image} className={`mb-4 ${index !== 0 ? "ml-4" : ""}`}>
+            <div className={`rounded-md h-12 overflow-hidden`}>
               <Image
                 src={image}
                 alt={title}
                 width={400}
                 height={400}
-                className={`  rounded-md ${``}`}
+                className=""
               />
             </div>
           </div>
@@ -24,4 +24,5 @@ const ImageCarousel = ({ images, title }) => {
     </div>
   );
 };
+
 export default ImageCarousel;
