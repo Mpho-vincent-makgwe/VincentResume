@@ -1,30 +1,22 @@
 import { Fragment } from "react";
-import EditRecipeInstructions from "./editRecipeInstructions";
+import EditRecipeInstructions from "./EditRecipeInstructions";
+import { useLocalStorageState } from "@/storage/LocalStorage";
 
 const RecipeInstructions = ({ recipes }) => {
-  const sortedInstructions = [];
+  const [instructions, setInstructions] = useLocalStorageState('instructions', recipes.instructions);
 
-  recipes.instructions.forEach((instruction, index) => {
-    sortedInstructions.push({ index, instruction });
-  });
+  const handleSaveToLocalStorage = (updatedInstructions) => {
+    setInstructions(updatedInstructions);
+  };
 
-  sortedInstructions.sort((a, b) => a.index - b.index);
-
-  recipes.instructions = sortedInstructions.map(
-    (instruction) => instruction.instruction
-  );
-  const reorderedInstructions = sortedInstructions.map((instruction) => (
-    <li key={instruction.index} className="text-gray-600">
-      {instruction.instruction}
-    </li>
-  ));
+  if (!recipes) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Fragment>
       <h3 className="mt-2 text-lg font-semibold">Instructions</h3>
-
-      <EditRecipeInstructions />
-      <ol className="list-decimal list-inside">{reorderedInstructions}</ol>
+      <EditRecipeInstructions instructions={instructions} onSave={handleSaveToLocalStorage} />
     </Fragment>
   );
 };

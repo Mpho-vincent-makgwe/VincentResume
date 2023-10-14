@@ -10,6 +10,7 @@ const RecipePage = ({ recipe }) => {
   if (!recipe) {
     console.log(`Can't find Recipe for:`, JSON.stringify(recipeName));
   }
+  
   return (
     <div>
       <Recipe recipe={recipe} />
@@ -20,7 +21,6 @@ const RecipePage = ({ recipe }) => {
 export const getServerSideProps = async ({ params }) => {
   const recipeName = params.recipeName;
   const recipe = await fetchRecipeDataFromMongo(recipeName, "recipes");
-
   return {
     props: { recipe },
   };

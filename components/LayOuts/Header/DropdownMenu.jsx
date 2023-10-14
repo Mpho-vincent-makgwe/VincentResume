@@ -43,9 +43,9 @@ const DropdownMenu = ({ options, onSelect }) => {
       </div>
 
       {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div className="origin-top-right z-20 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div
-            className="py-1"
+            className="py-1 max-h-40 overflow-y-auto" // Set a max-height and enable vertical scrolling
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="options-menu"

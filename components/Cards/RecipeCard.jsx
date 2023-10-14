@@ -1,68 +1,29 @@
 // RecipeCard.js
-import React from "react";
-import Image from "next/image";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import { responsive } from "../../helpers/settings/settings";
-import { formatTime } from "../../helpers/TimeConvertor";
-import calculateTotalTime from "../TimeAndDate/TotalTimeConverntion";
-
-const RecipeCard = ({ recipe  }) => {
+import { CookTime, PrepTime, Published, TotalTime } from "./TimeAndDate/Time";
+import Description from "../Description/Description";
+import Category from "./Category";
+import { useTheme } from "../context/ThemeContext/ThemeContext";
+const RecipeCard = ({ recipe }) => {
+  const { theme } = useTheme();
   if (!recipe) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div  className="bg-amber-600 p-4 rounded shadow mb-4">
-      <h2 className="text-2xl font-semibold">{recipe.title}</h2>
-      <h3 className="mt-2 text-lg font-semibold">Images</h3>
-      <section className="list-disc list-inside">
-        <Carousel responsive={responsive}>
-          {recipe.images.map((image) => (
-            <div key={image} className="text-gray-600">
-              <div>
-                <Image
-                  src={image}
-                  alt={recipe.title}
-                  width={300}
-                  height={300}
-                  className="max-w-full h-auto object-fit: cover"
-                />
-              </div>
-            </div>
-          ))}
-        </Carousel>
-      </section>
-      <p className="text-gray-600">{recipe.description}</p>
-      <p className="text-gray-600">
-        <b>Prep Time:</b> {formatTime(recipe.prep)} minutes
-      </p>
-      <p className="text-gray-600">
-        <b>Cook Time:</b> {formatTime(recipe.cook)} minutes
-      </p>
-      <p className="text-gray-600">
-        <b>Total Time:</b> {calculateTotalTime(recipe.prep, recipe.cook)}
-      </p>
-      <p className="text-gray-600">
-        <b>Category:</b> {recipe.category}
-      </p>
-      <p className="text-gray-600">
+    <div
+      className={`font-eduNswActFoundation ${
+        theme === "dark" ? "text-awesome-colors-50" : "text-brownish-red-10"
+      }`}
+    >
+      <Description recipe={recipe.description} />
+      <PrepTime prepTime={recipe.prep} />
+      <CookTime cookTime={recipe.cook} />
+      <TotalTime totalTime={recipe} />
+      <Category Category={recipe.category} />
+      <p className=" transform translate-x-0 hover:translate-x-2 transition-transform duration-300 ease-in-out">
         <b>Servings:</b> {recipe.servings}
       </p>
-      <b>Published:</b>
-      <p className="text-gray-600">
-        {new Date(recipe.published).toLocaleDateString()}
-      </p>
-
-      <h3 className="mt-2 text-lg font-semibold">Tags:</h3>
-
-      <ul className="list-disc list-inside">
-        {recipe.tags.map((tag, index) => (
-          <li key={index} className="text-gray-600">
-            {tag}
-          </li>
-        ))}
-      </ul>
+      <Published published={recipe.published} />
     </div>
   );
 };

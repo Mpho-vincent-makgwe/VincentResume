@@ -10,18 +10,24 @@
     "build:css": "tailwindcss build path/to/your/styles.css -o path/to/your/output.css"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.16",
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
+    "google-fonts": "^1.0.0",
     "mongodb": "^6.1.0",
     "next": "13.5.4",
+    "next-fonts": "^1.5.1",
     "postcss-import": "^15.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-multi-carousel": "^2.8.4",
-    "tailwindcss": "^3.3.3"
+    "react-multi-carousel": "^2.8.4"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.6",
     "@types/node": "20.8.3",
     "@types/react": "18.2.25",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.3",
     "typescript": "5.2.2"
   },
   "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",

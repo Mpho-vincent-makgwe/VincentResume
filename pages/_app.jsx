@@ -1,12 +1,19 @@
 import "../styles/globals.css";
-import HeaderLayout from "../components/LayOuts/Header/HeaderLayout";
+import "../styles/Fonts.css"
+import Layout from "../components/LayOuts/Header/Layout";
 import { Fragment } from "react";
+import ThemeProvider from "@/components/context/ThemeContext/ThemeContext";
+
 export default function App({ Component, pageProps }) {
+  
+
   return (
-    <Fragment>
-      <HeaderLayout>
-        <Component {...pageProps} />
-      </HeaderLayout>
-    </Fragment>
+    <ThemeProvider>
+      <Fragment>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Fragment>
+    </ThemeProvider>
   );
 }

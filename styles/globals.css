@@ -1,3 +1,4 @@
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -36,4 +37,33 @@ body {
 .dark-mode {
   background-color: #1a1a1a;
   color: #ffffff;
+}
+
+
+.recipe-card {
+  width: 100%; /* Set a fixed width for each card */
+  max-width: 300px; /* Adjust the max-width as per your design */
+  transition: transform 0.3s; /* Add a transition for smooth growth on hover */
+}
+
+.recipe-card img {
+  width: 100%;
+  height: auto;
+}
+
+.recipe-card h2 {
+  font-size: 1.5rem;
+}
+
+.recipe-card p {
+  font-size: 1rem;
+}
+
+.recipe-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05); /* Increase size on hover */
 }
