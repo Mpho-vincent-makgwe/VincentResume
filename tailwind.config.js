@@ -14,33 +14,10 @@ module.exports = {
       },
       colors: {
         // Configure your color palette here
-        "custom-red": {
-          10: "#ff5050",
+        "custom-color-mixed": {
+          10: "e8ffd4",
+          20:"#d2dbd1",
         },
-        "brownish-red": {
-          10: "#9e658a",
-        },
-        "custom-yellow": {
-          10: "#ffee4c",
-          20: "#e8ee96",
-        },
-        "custom-green": {
-          10: "#35c38d",
-        },
-        "awesome-colors": {
-          10: "#e4eecd",
-          20: "#e4eecd",
-          30: "#e4eeae",
-          40: "#9cbaae",
-          50: "#41a8ae",
-        },
-        "custom-blue": "#98a4e8",
-        // Light mode colors
-        "light-bg": "bg-white",
-        "light-text": "text-black",
-        // Dark mode colors
-        "dark-bg": "bg-gray-900",
-        "dark-text": "text-white",
       },
       fontFamily: {
         alkatra: ["Alkatra", "sans"],

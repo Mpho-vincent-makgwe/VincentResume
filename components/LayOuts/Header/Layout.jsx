@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <div
       className={`header-layout ${
-        theme === "dark" ? "dark-mode" : "light-mode"
+        theme === "dark" ? "bg-custom-color-mixed-20" : "bg-custom-color-mixed-10"
       }`}
     >
      <NavBar/>

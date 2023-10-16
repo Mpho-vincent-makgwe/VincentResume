@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <div
-      className={`flex min-h-screen flex-col items-center justify-between bg-gradient-to-r from-red-200 to-fuchsia-300`}
+      className={`flex min-h-screen flex-col items-center justify-between bg-custom-color-mixed`}
     >
       <RecipeList
         recipes={recipes}
